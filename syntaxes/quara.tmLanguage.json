@@ -1,0 +1,194 @@
+{
+  "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+  "name": "Quara",
+  "patterns": [
+    {
+      "include": "#base-lang"
+    },
+    {
+      "include": "#strings"
+    }
+  ],
+  "repository": {
+    "base-lang": {
+      "patterns": [
+        {
+          "include": "#keywords"
+        },
+        {
+          "include": "#comments"
+        },
+        {
+          "include": "#numbers"
+        },
+        {
+          "include": "#operators"
+        },
+        {
+          "include": "#punctuation"
+        }
+      ]
+    },
+    "keywords": {
+      "patterns": [
+        {
+          "name": "keyword.control.quara",
+          "match": "\\b(if|else|endif|while|endwhile|for|each|return)\\b"
+        },
+        {
+          "name": "keyword.type.quara",
+          "match": "\\b(boolean|char|string|int|integer|float|double|any|void)\\b"
+        },
+        {
+          "name": "keyword.constant.quara",
+          "match": "\\b(true|false|null)\\b"
+        },
+        {
+          "name": "keyword.declaration.quara",
+          "match": "\\b(var|const|function|class|enum|interface)\\b"
+        },
+        {
+          "name": "keyword.modifier.quara",
+          "match": "\\b(public|private|protected|static|final|abstract|override)\\b"
+        }
+      ]
+    },
+    "comments": {
+      "patterns": [
+        {
+          "name": "comment.line.double-slash.quara",
+          "match": "//.*$"
+        },
+        {
+          "name": "comment.block.quara",
+          "begin": "/\\*",
+          "end": "\\*/"
+        }
+      ]
+    },
+    "numbers": {
+      "patterns": [
+        {
+          "name": "constant.numeric.quara",
+          "match": "\\b(0b[01]+|0o[0-7]+|0x[0-9a-fA-F]+|\\d+(\\.\\d+)?([eE][+-]?\\d+)?)\\b"
+        }
+      ]
+    },
+    "operators": {
+      "patterns": [
+        {
+          "name": "keyword.operator.assignment.compound.quara",
+          "match": "\\*=|/=|%=|\\+=|\\-=|\\^="
+        },
+        {
+          "name": "keyword.operator.comparison.quara",
+          "match": "==|~=|!=|!~="
+        },
+        {
+          "name": "keyword.operator.relational.quara",
+          "match": "<=|>=|<|>"
+        },
+        {
+          "name": "keyword.operator.logical.quara",
+          "match": "\\!|&&|\\|\\|"
+        },
+        {
+          "name": "keyword.operator.assignment.quara",
+          "match": "\\="
+        },
+        {
+          "name": "keyword.operator.decrement.quara",
+          "match": "--"
+        },
+        {
+          "name": "keyword.operator.increment.quara",
+          "match": "\\+\\+"
+        },
+        {
+          "name": "keyword.operator.arithmetic.quara",
+          "match": "%|\\*|/|-|\\+|¬/|\\^"
+        }
+      ]
+    },
+    "punctuation": {
+      "patterns": [
+        {
+          "include": "#punctuation-comma"
+        },
+        {
+          "include": "#punctuation-semicolon"
+        },
+        {
+          "include": "#punctuation-accessor"
+        }
+      ]
+    },
+    "strings": {
+      "patterns": [
+        {
+          "include": "#string-double"
+        },
+        {
+          "include": "#string-template"
+        }
+      ]
+    },
+    "string-double": {
+      "name": "string.quoted.double.quara",
+      "begin": "\"",
+      "end": "\"",
+      "patterns": [
+        {
+          "include": "#character-escape"
+        }
+      ]
+    },
+    "string-template": {
+      "name": "string.quoted.template.quara",
+      "begin": "`",
+      "end": "`",
+      "patterns": [
+        {
+          "include": "#character-escape"
+        },
+        {
+          "name": "meta.template.expression.quara",
+          "begin": "{",
+          "end": "}",
+          "patterns": [
+            {
+              "include": "#base-lang"
+            },
+            {
+              "include": "#string-double"
+            }
+          ]
+        }
+      ]
+    },
+    "punctuation-comma": {
+      "name": "punctuation.separator.comma.quara",
+      "match": ","
+    },
+    "punctuation-semicolon": {
+      "name": "punctuation.terminator.statement.quara",
+      "match": ";"
+    },
+    "punctuation-accessor": {
+      "match": "(?:(\\.)|(\\?\\.(?!\\s*[[:digit:]])))",
+      "captures": {
+        "1": {
+          "name": "punctuation.accessor.quara"
+        },
+        "2": {
+          "name": "punctuation.accessor.optional.quara"
+        }
+      }
+    },
+    "character-escape": {
+      "name": "constant.character.escape.quara",
+      "match": "\\\\."
+    }
+  },
+  "scopeName": "source.quara"
+}

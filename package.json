@@ -1,0 +1,27 @@
+{
+  "name": "quara",
+  "displayName": "Quara",
+  "description": "",
+  "version": "0.0.1",
+  "license": "ISC",
+  "author": "Bernardo A. Siverio (wandeber)",
+  "engines": {
+    "vscode": "^1.81.0"
+  },
+  "categories": [
+    "Programming Languages"
+  ],
+  "contributes": {
+    "languages": [{
+      "id": "quara",
+      "aliases": ["Quara", "quara"],
+      "extensions": [".quara",".qr"],
+      "configuration": "./language-configuration.json"
+    }],
+    "grammars": [{
+      "language": "quara",
+      "scopeName": "source.quara",
+      "path": "./syntaxes/quara.tmLanguage.json"
+    }]
+  }
+}
