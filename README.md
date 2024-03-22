@@ -1,6 +1,6 @@
 # Quara for Visual Studio Code
 
-A Visual Studio Code extension that provides language support for Quara.
+A Visual Studio Code extension that provides language support for [Quara](https://github.com/wandeber/quara).
 
 ## Features
 
@@ -18,8 +18,8 @@ The syntax is pretty basic right now.
 
 Build:
 ```sh
-npm install -g vsce
-vsce package
+npm install
+npm run package
 ```
 
 Install in VSCode:
@@ -28,6 +28,11 @@ code --install-extension quara-x.x.x.vsix
 ```
 
 ## Release Notes
+
+### 0.0.2
+
+- Documentation improved.
+- CI in progress.
 
 ### 0.0.1
 

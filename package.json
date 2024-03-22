@@ -2,9 +2,19 @@
   "name": "quara",
   "displayName": "Quara",
   "description": "",
-  "version": "0.0.1",
+  "publisher": "wandeber",
+  "version": "0.0.3",
   "license": "ISC",
   "author": "Bernardo A. Siverio (wandeber)",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/wandeber/vscode-quara"
+  },
+  "keywords": [
+    "quara",
+    "syntax highlighting",
+    "programming language"
+  ],
   "engines": {
     "vscode": "^1.81.0"
   },
@@ -23,5 +33,12 @@
       "scopeName": "source.quara",
       "path": "./syntaxes/quara.tmLanguage.json"
     }]
+  },
+  "scripts": {
+    "publish": "npx vsce publish",
+    "package": "npx vsce package"
+  },
+  "devDependencies": {
+    "@vscode/vsce": "^2.24.0"
   }
 }

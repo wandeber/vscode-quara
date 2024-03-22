@@ -1,0 +1,35 @@
+name: Publish
+
+on:
+  release:
+    types: [created]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 20
+      - run: npm ci
+      - run: npm test
+
+  publish:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: Visual Studio Marketplace
+      url: https://marketplace.visualstudio.com/items?itemName=wandeber.quara
+    permissions:
+      packages: write
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 18.x
+      - run: npm install
+      - run: npm run publish
+        env:
+          VSCE_PAT: ${{ secrets.VSCE_PAT }}
